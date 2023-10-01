@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
             if (health <= 0)
             {
                 GameManager.INSTANCE.paused = true;
+                GameManager.INSTANCE.ReloadScene(5f);
                 Destroy(gameObject);
                 //Game Over
             }

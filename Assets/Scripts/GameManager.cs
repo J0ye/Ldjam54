@@ -126,4 +126,9 @@ public class GameManager : MonoBehaviour
         IslandPart.island = new List<IslandPart>();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void ReloadScene(float t)
+    {
+        Invoke(nameof(ReloadScene), t);
+    }
 }
