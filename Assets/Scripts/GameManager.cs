@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public float enemySpeedIncrease = 0f;
     public int enemyUpgradeEvery = 10;
     public int weaponDropEvery = 7;
+    public int bossMusicAt = 20;
     public int islandRemovaleAmmount = 4;
     public int newEnemyAmmount = 1;
     public int newEnemyHealth = 1;
@@ -92,6 +93,12 @@ public class GameManager : MonoBehaviour
         {
             SpawnNewCoconut();
         }
+
+        if ((waveCount % bossMusicAt) == 0)
+        {
+            StartCoroutine(MusicManager.instance.SwitchTrack());
+        }
+
         UpgradeWave();
 
     }

@@ -453,6 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bbc894f03a88f4397bb34c3cb866b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundPrefab: {fileID: 4251458190770564535, guid: 696164eb10725044e9f8151c719ef738, type: 3}
   health: 2
   speed: 1
   damageAnimationDuration: 0

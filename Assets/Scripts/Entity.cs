@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Entity : MonoBehaviour
 {
+    public GameObject hitSoundPrefab;
     public int health = 2;
     public float speed = 50f;
 
@@ -26,6 +27,7 @@ public class Entity : MonoBehaviour
         if (health <= 0)
         {
             // Death
+            Instantiate(hitSoundPrefab, transform.position, Quaternion.identity);
             StartCoroutine(Die());
         }
     }

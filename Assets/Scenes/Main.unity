@@ -4984,6 +4984,7 @@ MonoBehaviour:
   enemySpeedIncrease: 0
   enemyUpgradeEvery: 8
   weaponDropEvery: 9
+  bossMusicAt: 2
   islandRemovaleAmmount: 5
   newEnemyAmmount: 1
   newEnemyHealth: 1
@@ -5847,6 +5848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bbc894f03a88f4397bb34c3cb866b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundPrefab: {fileID: 0}
   health: 2
   speed: 0
   damageAnimationDuration: 0
@@ -6633,6 +6635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bbc894f03a88f4397bb34c3cb866b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundPrefab: {fileID: 0}
   health: 2
   speed: 0
   damageAnimationDuration: 0
@@ -6758,6 +6761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bbc894f03a88f4397bb34c3cb866b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundPrefab: {fileID: 0}
   health: 2
   speed: 0
   damageAnimationDuration: 0
@@ -7237,6 +7241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bbc894f03a88f4397bb34c3cb866b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundPrefab: {fileID: 0}
   health: 2
   speed: 0
   damageAnimationDuration: 0
@@ -7781,6 +7786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bbc894f03a88f4397bb34c3cb866b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundPrefab: {fileID: 0}
   health: 2
   speed: 0
   damageAnimationDuration: 0
@@ -8452,6 +8458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bbc894f03a88f4397bb34c3cb866b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundPrefab: {fileID: 0}
   health: 2
   speed: 0
   damageAnimationDuration: 0
@@ -8850,7 +8857,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 3e159a3278c92d24a9df4c325bfbd5dc, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 6ff658d94bda9494dbd38bf435e21490, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 78bf7937b5231fc4bb3cd9330a17dc35, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -8963,8 +8970,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e94282afd3706c642ab44467a21a1f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track1: {fileID: 0}
-  track2: {fileID: 0}
+  track1: {fileID: 8300000, guid: 78bf7937b5231fc4bb3cd9330a17dc35, type: 3}
+  track2: {fileID: 8300000, guid: 096fde9e1f424924e901fc232571788d, type: 3}
+  fadeDuration: 2
 --- !u!1 &1947721347
 GameObject:
   m_ObjectHideFlags: 0
@@ -9382,6 +9390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bbc894f03a88f4397bb34c3cb866b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundPrefab: {fileID: 0}
   health: 2
   speed: 0
   damageAnimationDuration: 0
@@ -9507,6 +9516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bbc894f03a88f4397bb34c3cb866b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundPrefab: {fileID: 0}
   health: 2
   speed: 0
   damageAnimationDuration: 0
