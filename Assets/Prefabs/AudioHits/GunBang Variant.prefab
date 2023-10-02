@@ -8,12 +8,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6507177423250459744, guid: ccc1f027fcb8dd642904e446679185eb, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507177423250459744, guid: ccc1f027fcb8dd642904e446679185eb, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 04b4d52b2d3ed5d44ab032d1f9643223, type: 3}
+      objectReference: {fileID: 8300000, guid: d21cfedfbdd84ff449fec3e682cd38a7, type: 3}
     - target: {fileID: 6507177423250459745, guid: ccc1f027fcb8dd642904e446679185eb, type: 3}
       propertyPath: m_Name
-      value: GunBang
+      value: GunBang Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6507177423250459747, guid: ccc1f027fcb8dd642904e446679185eb, type: 3}
       propertyPath: m_RootOrder

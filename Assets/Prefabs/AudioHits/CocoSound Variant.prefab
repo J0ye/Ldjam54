@@ -52,12 +52,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4251458190770564534, guid: 696164eb10725044e9f8151c719ef738, type: 3}
+      propertyPath: m_Volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4251458190770564534, guid: 696164eb10725044e9f8151c719ef738, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 5de98d3b68c7ea84799e42082b2da793, type: 3}
+      objectReference: {fileID: 8300000, guid: dc6e71d9cd31d1e46b69475287dea5a3, type: 3}
     - target: {fileID: 4251458190770564535, guid: 696164eb10725044e9f8151c719ef738, type: 3}
       propertyPath: m_Name
-      value: CocoSound
+      value: CocoSound Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696164eb10725044e9f8151c719ef738, type: 3}

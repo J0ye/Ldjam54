@@ -53,11 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1556562548927937602, guid: 1eeeacd59b6be1843a665f6b6ecd2b87, type: 3}
       propertyPath: m_Name
-      value: PlayerHit
+      value: PlayerHit Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1556562548927937603, guid: 1eeeacd59b6be1843a665f6b6ecd2b87, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: d341f4fb3c7952e40956f9d15b772a57, type: 3}
+      objectReference: {fileID: 8300000, guid: 9c2ed92be8f2c564bbb53f65652ebcbc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eeeacd59b6be1843a665f6b6ecd2b87, type: 3}

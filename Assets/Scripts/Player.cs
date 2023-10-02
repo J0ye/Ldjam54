@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     public List<Transform> slots = new List<Transform>();
     public GameObject islandPartPrefab;
+    public GameObject soundPrefab;
+    public AudioSource walk;
     public Collider2D gameBounds;
     public int score = 0;
     public float speed = 0.1f;
@@ -64,6 +66,7 @@ public class Player : MonoBehaviour
         if(!safeFrame)
         {
             health--;
+            Instantiate(soundPrefab, transform.position, Quaternion.identity);
             StartCoroutine(DamageAnimation());
             if (health <= 0)
             {
@@ -152,6 +155,15 @@ public class Player : MonoBehaviour
         else
         {
             sr.flipX = false;
+        }
+
+        if(inputVectorRaw != Vector3.zero && !walk.isPlaying)
+        {
+            walk.Play();
+        }
+        else if( inputVectorRaw == Vector3.zero)
+        {
+            walk.Pause();
         }
     }
 

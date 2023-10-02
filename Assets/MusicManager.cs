@@ -7,8 +7,7 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
 
-    public AudioClip track1;
-    public AudioClip track2;
+    public AudioSource secondSource;
     public float fadeDuration = 2f;
 
     protected AudioSource audioSource;
@@ -33,27 +32,22 @@ public class MusicManager : MonoBehaviour
     {
         if(!isChanging)
         {
-            float halfD = fadeDuration / 2;
             isChanging = true;
             if (isPlaying1)
             {
-                audioSource.DOFade(0f, halfD);
-                yield return new WaitForSeconds(halfD);
-                audioSource.clip = track2;
-                audioSource.Play();
-                audioSource.DOFade(100f, halfD);
+                audioSource.DOFade(0f, fadeDuration);
+                secondSource.Play();
+                secondSource.DOFade(100f, fadeDuration);
+                yield return new WaitForSeconds(fadeDuration);
                 isPlaying1 = false;
-                yield return new WaitForSeconds(halfD);
             }
             else
             {
-                audioSource.DOFade(0f, halfD);
-                yield return new WaitForSeconds(halfD);
-                audioSource.clip = track1;
+                secondSource.DOFade(0f, fadeDuration);
                 audioSource.Play();
-                audioSource.DOFade(100f, halfD);
+                audioSource.DOFade(100f, fadeDuration);
+                yield return new WaitForSeconds(fadeDuration);
                 isPlaying1 = true;
-                yield return new WaitForSeconds(halfD);
             }
             isChanging = false;
         }
