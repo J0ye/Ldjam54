@@ -103,4 +103,5 @@ MonoBehaviour:
   punchDuration: 0.2
   rotationOffset: 0
   projectilePrefab: {fileID: 3322777818116352276, guid: be2b1c35ebbeb034b9182a0a875cbda1, type: 3}
+  soundPrefab: {fileID: 3565596052706525822, guid: 3f2f89b0593968d4988c831b33ddc7dc, type: 3}
   projectileSpeed: 500

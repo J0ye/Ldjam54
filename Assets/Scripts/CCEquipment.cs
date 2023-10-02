@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class CCEquipment : Equipment
 {
+    public GameObject soundPrefab;
     public float moveAnimationDuration = 0.3f;
 
     protected Vector3 startpos = new Vector3();
@@ -25,6 +26,7 @@ public class CCEquipment : Equipment
         if (e != null)
         {
             DealDamage(e);
+            Instantiate(soundPrefab, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(attackCooldown);
         }
         onCooldown = false;

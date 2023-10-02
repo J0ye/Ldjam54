@@ -4984,7 +4984,7 @@ MonoBehaviour:
   enemySpeedIncrease: 0
   enemyUpgradeEvery: 8
   weaponDropEvery: 9
-  bossMusicAt: 2
+  bossMusicAt: 5
   islandRemovaleAmmount: 5
   newEnemyAmmount: 1
   newEnemyHealth: 1

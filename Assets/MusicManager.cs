@@ -40,6 +40,7 @@ public class MusicManager : MonoBehaviour
                 audioSource.DOFade(0f, halfD);
                 yield return new WaitForSeconds(halfD);
                 audioSource.clip = track2;
+                audioSource.Play();
                 audioSource.DOFade(100f, halfD);
                 isPlaying1 = false;
                 yield return new WaitForSeconds(halfD);
@@ -49,6 +50,7 @@ public class MusicManager : MonoBehaviour
                 audioSource.DOFade(0f, halfD);
                 yield return new WaitForSeconds(halfD);
                 audioSource.clip = track1;
+                audioSource.Play();
                 audioSource.DOFade(100f, halfD);
                 isPlaying1 = true;
                 yield return new WaitForSeconds(halfD);

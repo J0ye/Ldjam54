@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2148c20b5eba82540923b9c354c3821a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundPrefab: {fileID: 8207389606229496663, guid: 42321c80d9d09824586177b51f254cac, type: 3}
   bubble: {fileID: 3232252731042926989}
   dirt: {fileID: 3928332318249101653}
   animationColor: {r: 0.21698111, g: 0.18934673, b: 0.18934673, a: 1}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class RangeEquipment : Equipment
 {
     public GameObject projectilePrefab;
+    public GameObject soundPrefab;
     public float projectileSpeed = 50f;
 
     protected override IEnumerator Attack(GameObject target)
@@ -12,6 +13,7 @@ public class RangeEquipment : Equipment
         onCooldown = true;
         StartCoroutine(base.Attack(target));
         GameObject bullet = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        Instantiate(soundPrefab, transform.position, Quaternion.identity);
         Destroy(bullet, range);
         Vector3 dir = target.transform.position - bullet.transform.position;
         bullet.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed);

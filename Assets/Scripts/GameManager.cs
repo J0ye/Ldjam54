@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     private float waveTimer = 0f;
     private int waveCount = 0;
+    private bool musicChanged = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -94,8 +95,9 @@ public class GameManager : MonoBehaviour
             SpawnNewCoconut();
         }
 
-        if ((waveCount % bossMusicAt) == 0)
+        if ((waveCount % bossMusicAt) == 0 && !musicChanged)
         {
+            musicChanged = true;
             StartCoroutine(MusicManager.instance.SwitchTrack());
         }
 

@@ -20,6 +20,7 @@ public class IslandPart : MonoBehaviour
         return false;
     }
 
+    public GameObject soundPrefab;
     public ParticleSystem bubble;
     public ParticleSystem dirt;
     public Color animationColor = Color.black;
@@ -65,6 +66,7 @@ public class IslandPart : MonoBehaviour
             Player.instance.maxTileCount++;
         }
         transform.DOScale(Vector3.zero, fadeAnimationDuration);
+        Instantiate(soundPrefab, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(fadeAnimationDuration);
         Destroy(gameObject);
     }

@@ -9,6 +9,7 @@ public enum PowerUpType {RangedWeapon, CCWeapon, RangeUpgrade, Health, IslandTil
 public class PowerUp : MonoBehaviour
 {
     public PowerUpType type;
+    public GameObject soundPrefab;
     public GameObject rangePrefab;
     public GameObject ccPrefab;
     public GameObject heartParticlePrefab;
@@ -150,6 +151,10 @@ public class PowerUp : MonoBehaviour
             default:
                 Debug.Log("Unknown power bestowed, where it leads, who knows!");
                 break;
+        }
+        if(soundPrefab != null)
+        {
+            Instantiate(soundPrefab, transform.position, Quaternion.identity);
         }
     }
 }

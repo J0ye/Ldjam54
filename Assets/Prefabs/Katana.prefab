@@ -129,4 +129,5 @@ MonoBehaviour:
   punchVector: {x: 1, y: 1, z: 1}
   punchDuration: 0.1
   rotationOffset: 0
+  soundPrefab: {fileID: 9123327144481009861, guid: 6e532e96075f36243a97186ac849976a, type: 3}
   moveAnimationDuration: 0.1
