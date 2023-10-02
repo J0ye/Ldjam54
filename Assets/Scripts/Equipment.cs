@@ -27,7 +27,7 @@ public class Equipment : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (GetEnemiesInRange().Count > 0)
+        if (GetEnemiesInRange().Count > 0 && !GameManager.INSTANCE.paused)
         {
             GameObject target = GetClosestEnemyInRange();
             if (!onCooldown) StartCoroutine(Attack(target));
