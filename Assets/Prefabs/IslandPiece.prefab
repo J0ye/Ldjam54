@@ -347,9 +347,9 @@ MonoBehaviour:
   dirt: {fileID: 3928332318249101653}
   animationColor: {r: 0.21698111, g: 0.18934673, b: 0.18934673, a: 1}
   fadeColor: {r: 0.1509434, g: 0.057671774, b: 0.057671774, a: 1}
-  existenceDuration: {x: 3, y: 40}
+  existenceDuration: {x: 3, y: 25}
   colorAnimationDuration: 0.48
-  fadeAnimationDuration: 1
+  fadeAnimationDuration: 0.7
   showContact: 0
   showSpaces: 0
 --- !u!1 &2915721851491508371

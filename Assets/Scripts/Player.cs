@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public List<Transform> slots = new List<Transform>();
     public GameObject islandPartPrefab;
     public Collider2D gameBounds;
+    public int score = 0;
     public float speed = 0.1f;
     public float range = 0f;
     public float directionIncrease = 1f;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     public Vector3 shakeStrength = Vector3.one;
     public float damageAnimationDuration = 1f;
     public TextMeshProUGUI sandCounterText;
+    public TextMeshProUGUI scoreText;
 
     private SpriteRenderer sr;
     private Vector3 moveVector = new Vector3();
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
 
+        PlayerPrefs.SetInt("Score", score);
         sr = GetComponent<SpriteRenderer>();
     }
 
@@ -72,6 +75,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void IncreaseScore(int val)
+    {
+        score += val;
+        scoreText.text = score.ToString();
+        PlayerPrefs.SetInt("Score", score);
+    }
+
     public void SetNewWeapon(GameObject newEquip)
     {
         if(slots.Count > 0)
@@ -82,6 +92,20 @@ public class Player : MonoBehaviour
             GameObject newWeapon = Instantiate(newEquip, spot, Quaternion.identity);
             newWeapon.transform.parent = transform;
             newWeapon.GetComponent<Equipment>().range += range;
+        }
+    }
+
+    public void UpgradeRange(float val)
+    {
+        range += val;
+        Equipment e;
+
+        foreach(Transform child in transform)
+        {
+            if(child.gameObject.TryGetComponent<Equipment>(out e))
+            {
+                e.range += val;
+            }
         }
     }
 

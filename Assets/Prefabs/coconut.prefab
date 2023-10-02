@@ -186,7 +186,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.5
 --- !u!114 &7929402188789184130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,4 +205,7 @@ MonoBehaviour:
   heartParticlePrefab: {fileID: 507975617204828458, guid: 8fbff338ab7be49429da65517c9d1fc3, type: 3}
   crossParticlePrefab: {fileID: 1267884285939806798, guid: 2dd543da24cd2c44ea8b0ebc03bfd9f0, type: 3}
   sandParticlePrefab: {fileID: 5925315956682645096, guid: 828ab6fc5ee5f874b85bfcab4b03d430, type: 3}
+  flightDuration: 0.2
+  pickUpRange: 1
   doRandomizeType: 1
+  punchStrengh: {x: 1, y: 1, z: 1}
