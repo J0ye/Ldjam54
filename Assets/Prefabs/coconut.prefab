@@ -208,4 +208,4 @@ MonoBehaviour:
   flightDuration: 0.2
   pickUpRange: 1
   doRandomizeType: 1
-  punchStrengh: {x: 1, y: 1, z: 1}
+  punchStrengh: {x: 0, y: 0, z: 180}

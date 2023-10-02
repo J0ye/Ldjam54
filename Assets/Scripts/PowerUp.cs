@@ -18,10 +18,13 @@ public class PowerUp : MonoBehaviour
     public float pickUpRange = 1f;
     public bool doRandomizeType = true;
     [Header("Animation")]
-    public Vector3 punchStrengh = Vector3.one;
+    public Gradient colorDanceGrad = new Gradient();
+    public bool doColorAnim = false;
+    public float duration = 1f;
 
+    protected SpriteRenderer sr;
+    protected Sequence colorDance;
 
-    protected Tween jiggle;
     // Start is called before the first frame update
     void Awake()
     {
@@ -34,12 +37,18 @@ public class PowerUp : MonoBehaviour
                 RandomizeType();
             }
         }
-        jiggle = transform.DOPunchRotation(punchStrengh, 10f);
+
+        sr = GetComponent<SpriteRenderer>();
+
+        if (doColorAnim) colorDance = sr.DOGradientColor(colorDanceGrad, duration);
     }
 
     private void Update()
     {
-        if(jiggle.IsComplete() && !GameManager.INSTANCE.paused) transform.DOPunchRotation(punchStrengh, 10f);
+        if(!colorDance.IsActive() && doColorAnim)
+        {
+            colorDance = sr.DOGradientColor(colorDanceGrad, duration);
+        }
     }
 
     public void RandomizeWeaponType()

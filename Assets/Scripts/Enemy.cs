@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class Enemy : Entity
 {
     [Header("Enemy Settings")]
+    public GameObject pointStarPrefab;
+    public GameObject waterSplashPrefab;
     public float range = 10f;
     public float attackCoolDown = 1f;
 
@@ -13,6 +15,12 @@ public class Enemy : Entity
 
 
     private bool attackOnCoolDown = false;
+
+    private void Awake()
+    {
+        GameObject temp = Instantiate(waterSplashPrefab, transform.position, waterSplashPrefab.transform.rotation);
+        Destroy(temp, 5f);
+    }
 
     // Update is called once per frame
     void Update()
@@ -60,6 +68,7 @@ public class Enemy : Entity
     protected override IEnumerator Die()
     {
         OnDeath.Invoke();
+        Instantiate(pointStarPrefab, transform.position, pointStarPrefab.transform.rotation);
         return base.Die();
     }
 

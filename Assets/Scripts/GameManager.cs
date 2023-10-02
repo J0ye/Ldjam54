@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public int islandRemovaleAmmount = 4;
     public int newEnemyAmmount = 1;
     public int newEnemyHealth = 1;
+    public int waveEnemyIncrease = 1;
     public float newEnemyScale = 1f;
     public bool paused = false;
     public bool ready = false;
@@ -87,14 +88,17 @@ public class GameManager : MonoBehaviour
         {
             SpawnNewCoconut(true);
         }
-        SpawnNewCoconut();
+        else
+        {
+            SpawnNewCoconut();
+        }
         UpgradeWave();
 
     }
 
     private void UpgradeWave()
     {
-        newEnemyAmmount++;
+        newEnemyAmmount += waveEnemyIncrease;
         waveDuration += 0.3f;
         enemySpeedIncrease += 0.1f;
     }
@@ -103,6 +107,7 @@ public class GameManager : MonoBehaviour
     {
         newEnemyHealth += 1;
         newEnemyScale += 0.1f;
+        waveEnemyIncrease++;
     }
 
     private void SpawnNewEnemy()
@@ -160,14 +165,14 @@ public class GameManager : MonoBehaviour
         pauseScreen.SetActive(paused);
     }
 
-    public void ReloadScene()
+    public void LoadScore()
     {
         IslandPart.island = new List<IslandPart>();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Score");
     }
 
-    public void ReloadScene(float t)
+    public void LoadScore(float t)
     {
-        Invoke(nameof(ReloadScene), t);
+        Invoke(nameof(LoadScore), t);
     }
 }
