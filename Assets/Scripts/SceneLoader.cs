@@ -9,4 +9,9 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
+
+    public void SetPlayerName(string name)
+    {
+        PlayerPrefs.SetString("Name", name);
+    }
 }

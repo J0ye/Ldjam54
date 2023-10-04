@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public enum PowerUpType {RangedWeapon, CCWeapon, RangeUpgrade, Health, IslandTileUpgrade, Points }
+public enum PowerUpType {RangedWeapon, CCWeapon, SMG, RangeUpgrade, Health, IslandTileUpgrade, Points }
 
 public class PowerUp : MonoBehaviour
 {
     public PowerUpType type;
     public GameObject soundPrefab;
     public GameObject rangePrefab;
+    public GameObject smgPrefab;
     public GameObject ccPrefab;
     public GameObject heartParticlePrefab;
     public GameObject crossParticlePrefab;
@@ -33,7 +34,7 @@ public class PowerUp : MonoBehaviour
         {
             RandomizeType();
 
-            if (type == PowerUpType.CCWeapon || type == PowerUpType.RangedWeapon)
+            if (type == PowerUpType.CCWeapon || type == PowerUpType.RangedWeapon || type == PowerUpType.SMG)
             {
                 RandomizeType();
             }
@@ -59,12 +60,12 @@ public class PowerUp : MonoBehaviour
         if (Player.instance.slots.Count <= 0)
         {
             // cannot have new weapons
-            rand = UnityEngine.Random.Range(2, values.Length);
+            rand = UnityEngine.Random.Range(3, values.Length-1);
         }
         else
         {
             // can have new weapons
-            rand = UnityEngine.Random.Range(0, 2);
+            rand = UnityEngine.Random.Range(0, 3);
         }
         type = (PowerUpType)values.GetValue(rand);
     }
@@ -76,7 +77,7 @@ public class PowerUp : MonoBehaviour
         if(Player.instance.slots.Count <= 0)
         {
             // cannot have new weapons
-            rand = UnityEngine.Random.Range(2, values.Length-1);
+            rand = UnityEngine.Random.Range(3, values.Length-1);
         }
         else
         {
@@ -98,8 +99,8 @@ public class PowerUp : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent<Player>(out Player player))
         {
-            StartCoroutine(FlyTo(collision.gameObject.transform.position));
             GetComponent<Collider2D>().enabled = false;
+            StartCoroutine(FlyTo(collision.gameObject.transform.position));
         }
     }
 
@@ -122,15 +123,20 @@ public class PowerUp : MonoBehaviour
                 LogCreator.instance.AddLog("New CC Weapon");
                 break;
 
+            case PowerUpType.SMG:
+                Player.instance.SetNewWeapon(smgPrefab);
+                LogCreator.instance.AddLog("New SMG");
+                break;
+
             case PowerUpType.RangeUpgrade:
                 GameObject temp = Instantiate(crossParticlePrefab, transform.position, crossParticlePrefab.transform.rotation);
                 Destroy(temp, 5f);
-                Player.instance.range += 0.3f;
+                Player.instance.UpgradeRange(0.3f);
                 LogCreator.instance.AddLog("Range Upgrade");
                 break;
 
             case PowerUpType.Health:
-                Player.instance.health++;
+                Player.instance.HealAndUpgradeHealth(1);
                 GameObject temp2 = Instantiate(heartParticlePrefab, transform.position, heartParticlePrefab.transform.rotation);
                 Destroy(temp2, 5f);
                 LogCreator.instance.AddLog("Heald and Health Upgrade");

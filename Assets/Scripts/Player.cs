@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using Dan.Main;
+using System;
+using Dan.Models;
 
 public class Player : MonoBehaviour
 {
@@ -25,13 +28,17 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI sandCounterText;
     public TextMeshProUGUI scoreText;
 
+    [Header("Score List Settings")]
+    public string scoreKey = "";
+
     private SpriteRenderer sr;
     private Vector3 moveVector = new Vector3();
     private Vector3 inputVectorRaw = new Vector3();
     private Vector3 inputVectorIncreased = new Vector3();
     private Vector3 positionCheckOffset = new Vector3();
-    private bool safeFrame = false;
+    private int currentHealth = 0;
     private int currentTileCount = 0;
+    private bool safeFrame = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -47,6 +54,24 @@ public class Player : MonoBehaviour
 
         PlayerPrefs.SetInt("Score", score);
         sr = GetComponent<SpriteRenderer>();
+        currentHealth = health;
+    }
+
+    private void Start()
+    {
+        try
+        {
+            LeaderboardCreator.GetLeaderboard(scoreKey, PlaceholderFun);
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning("Error with handeling online leaderboard: " + e);
+        }
+    }
+
+    protected void PlaceholderFun(Entry[] entries)
+    {
+
     }
 
     // Update is called once per frame
@@ -65,14 +90,20 @@ public class Player : MonoBehaviour
     {
         if(!safeFrame)
         {
-            health--;
+            currentHealth--;
             Instantiate(soundPrefab, transform.position, Quaternion.identity);
             StartCoroutine(DamageAnimation());
-            if (health <= 0)
+            if (currentHealth == 0)
             {
+                string nickName = PlayerPrefs.GetString("Name", "Defaultname");
+
                 GameManager.INSTANCE.paused = true;
-                GameManager.INSTANCE.LoadScore(2f);
-                Destroy(gameObject);
+                print("score print");
+                print(nickName);
+                print(score);
+                LeaderboardCreator.UploadNewEntry(scoreKey, nickName, score, Callback, ErrorCallback);
+                GameManager.INSTANCE.LoadScore(5f);
+                sr.enabled = false;
                 //Game Over
             }
         }
@@ -110,6 +141,12 @@ public class Player : MonoBehaviour
                 e.range += val;
             }
         }
+    }
+
+    public void HealAndUpgradeHealth(int val)
+    {
+        health += val;
+        currentHealth = health;
     }
 
     private void FixedUpdate()
@@ -245,6 +282,19 @@ public class Player : MonoBehaviour
         int val = maxTileCount - currentTileCount;
 
         sandCounterText.text = val.ToString();
+    }
+
+    private void Callback(bool success)
+    {
+        if (success)
+        {
+            GameManager.INSTANCE.LoadScore(1f);
+        }
+    }
+
+    private void ErrorCallback(string error)
+    {
+        Debug.LogError(error);
     }
 
     private void OnDrawGizmos()

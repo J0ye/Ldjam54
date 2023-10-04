@@ -6,6 +6,7 @@ using DG.Tweening;
 public class Equipment : MonoBehaviour
 {
     [Header("Weapon Stats")]
+    public int damage = 1;
     public float range = 10f;
     public float attackCooldown = 1f;
 
@@ -15,6 +16,7 @@ public class Equipment : MonoBehaviour
     public float rotationOffset = 0f;
 
     protected SpriteRenderer sr;
+    protected Tween punchTween;
     protected Vector3 startSize;
     protected bool onCooldown = false;
     // Start is called before the first frame update
@@ -37,14 +39,18 @@ public class Equipment : MonoBehaviour
 
     protected virtual IEnumerator Attack(GameObject target)
     {
+        if (punchTween != null) punchTween.Complete();
         transform.localScale = startSize;
-        transform.DOPunchScale(punchVector, punchDuration, 10, 0);
+        punchTween = transform.DOPunchScale(punchVector, punchDuration, 10, 0);
         yield return 0;
     }
 
     protected virtual void DealDamage(Enemy target)
     {
-        target.DealDamage();
+        for (int i = 0; i < damage; i++)
+        {
+            target.DealDamage();
+        }
     }
 
     protected virtual void FaceTarget(GameObject target)
@@ -62,9 +68,14 @@ public class Equipment : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
-    protected GameObject GetClosestEnemyInRange()
+    public GameObject GetClosestEnemyInRange()
     {
         List<GameObject> enemies = GetEnemiesInRange();
+        if (enemies.Count <= 0)
+        {
+            return null;
+        }
+
         GameObject closest = enemies[0];
         foreach (GameObject e in GetEnemiesInRange())
         {
@@ -74,7 +85,6 @@ public class Equipment : MonoBehaviour
                 closest = e;
             }
         }
-
         return closest;
     }
 

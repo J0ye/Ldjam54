@@ -202,6 +202,7 @@ MonoBehaviour:
   type: 0
   soundPrefab: {fileID: 1556562548927937602, guid: 1eeeacd59b6be1843a665f6b6ecd2b87, type: 3}
   rangePrefab: {fileID: 4151187988587723411, guid: 09dd07b8df921284983f39bf904694f6, type: 3}
+  smgPrefab: {fileID: 4151187988587723411, guid: 71670309e3570a440a261c35510553d9, type: 3}
   ccPrefab: {fileID: 6166798063104440887, guid: c976164f692aaa5488baf87040993319, type: 3}
   heartParticlePrefab: {fileID: 507975617204828458, guid: 8fbff338ab7be49429da65517c9d1fc3, type: 3}
   crossParticlePrefab: {fileID: 1267884285939806798, guid: 2dd543da24cd2c44ea8b0ebc03bfd9f0, type: 3}

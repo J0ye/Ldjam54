@@ -124,8 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b7b1012cd52654ab9b755932a942f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 2
   range: 2
-  attackCooldown: 0.1
+  attackCooldown: 0.05
   punchVector: {x: 1, y: 1, z: 1}
   punchDuration: 0.1
   rotationOffset: 0

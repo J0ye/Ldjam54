@@ -97,11 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276d09231d7802d46b965e25606e476b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
-  attackCooldown: 0.2
+  damage: 3
+  range: 6
+  attackCooldown: 0.7
   punchVector: {x: 0.5, y: 0.5, z: 0}
-  punchDuration: 0.2
+  punchDuration: 0.1
   rotationOffset: 0
   projectilePrefab: {fileID: 3322777818116352276, guid: be2b1c35ebbeb034b9182a0a875cbda1, type: 3}
   soundPrefab: {fileID: 3565596052706525822, guid: 3f2f89b0593968d4988c831b33ddc7dc, type: 3}
+  spread: {x: 0, y: 0, z: 0, w: 0}
   projectileSpeed: 500

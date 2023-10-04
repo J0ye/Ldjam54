@@ -4987,8 +4987,8 @@ MonoBehaviour:
   bossMusicAt: 7
   islandRemovaleAmmount: 5
   newEnemyAmmount: 1
-  newEnemyHealth: 1
-  waveEnemyIncrease: 1
+  newEnemyHealth: 2
+  waveEnemyIncrease: 2
   newEnemyScale: 1
   paused: 0
   ready: 0
@@ -9816,6 +9816,14 @@ PrefabInstance:
       propertyPath: walk
       value: 
       objectReference: {fileID: 2088315051}
+    - target: {fileID: 6767726754617121050, guid: c640d241c3d8a584c8f6627c5d1b997a, type: 3}
+      propertyPath: health
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767726754617121050, guid: c640d241c3d8a584c8f6627c5d1b997a, type: 3}
+      propertyPath: scoreKey
+      value: d8c2aca9882869299759fbacc7d29dadb584ef5af5646a67b69f33584dde5c3f
+      objectReference: {fileID: 0}
     - target: {fileID: 6767726754617121050, guid: c640d241c3d8a584c8f6627c5d1b997a, type: 3}
       propertyPath: scoreText
       value: 
